@@ -87,47 +87,23 @@ const genres = [
 
 const main = document.getElementById('main');
 const form =  document.getElementById('form');
+const search = document.getElementById('search');
 const tagsEl = document.getElementById('tags');
-// const feelingsArray = ["Action-Packed","Humorous", "Informed", "Scared", "Emotional"]
-// const actionPacked = [
-//   {
-//     "id": 12,
-//     "name": "Adventure"
-//   },
-//   {
-//     "id": 14,
-//     "name": "Fantasy"
-//   },
-//   {
-//     "id": 10752,
-//     "name": "War"
-//   }
-// ]
 
+const prev = document.getElementById('prev')
+const next = document.getElementById('next')
+const current = document.getElementById('current')
 
-// function showFeelingTags() {
-  
-//   feelingsArray.forEach(feeling =>{
-//     const t = document.createElement('div');
-//     t.classList.add('tag');
-//     t.textContent= feeling;
-//     t.setAttribute('value', feeling)
-//     tagsEl.append(t)
-//     t.addEventListener("click", ()=> {
-//       if(this.value==="Action-Packed") {
-//         console.log("test")
-//         setGenre(actionPacked);
-//         }
-//       }
-//     )
- 
-//   })
-// }
+var currentPage = 1;
+var nextPage = 2;
+var prevPage = 3;
+var lastUrl = '';
+var totalPages = 100;
 
-// showFeelingTags();
-setGenre();
 var selectedGenre = []
+setGenre();
 function setGenre() {
+    tagsEl.innerHTML= '';
     genres.forEach(genre => {
         const t = document.createElement('div');
         t.classList.add('tag');
@@ -152,7 +128,6 @@ function setGenre() {
             highlightSelection()
         })
         tagsEl.append(t);
-      
     })
 }
 
